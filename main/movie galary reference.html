@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+    margin:0px;
+    padding: 0px;
+    font-family: poppins;
+    background-color: rgba(151,151,151,0.03);
+}
+*{
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    border:1px solid rgba(0,0,0,0.04);
+    background-color: #ffffff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+.logo img{
+    height: 35px;
+}
+nav .menu{
+    display: flex;
+}
+nav .menu li a{
+    height: 40px;
+    line-height: 43px;
+    margin: 0px;
+    padding: 0px 22px;
+    display: flex;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color:#585858;
+    letter-spacing: 1px;
+}
+.search{
+    width:250px;
+    height: 40px;
+    background-color: rgba(245,245,245,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 0px 20px;
+}
+.search input{
+    width:100%;
+    height: 30px;
+    border:none;
+    outline: none;
+    background-color: transparent;
+}
+.search i{
+    color:#3a3a3a;
+}
+nav .menu li a:hover{
+    background-color: #242424;
+    color:#ffffff;
+    box-shadow: 5px 10px 30px rgba(53,53,53,0.1);
+    transition: all ease 0.2s;
+}
+#main{
+    padding-top: 80px;
+    background-color: #ffffff;
+}
+.showcase-box{
+    width:430px;
+    height: 250px;
+    box-shadow: 5px 15px 30px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin:0px 20px 10px 20px;
+    overflow: hidden;
+}
+.showcase-box img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+.showcase-heading{
+    padding-left: 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+}
+.cs-hidden{
+    overflow: visible !important;
+}
+#latest{
+    border-top: 1px solid rgba(53,53,53,0.1);
+}
+.latest-heading{
+    margin: 30px 30px 0px 30px;
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+.latest-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+    margin: 20px 10px;
+    border-radius: 10px;
+    overflow:hidden;
+    width:200px;
+    background-color: #ffffff;
+}
+.latest-b-img{
+    width:100%;
+    height: 270px;
+}
+.latest-b-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.latest-b-text strong{
+    color:#3a3a3a;
+    margin: 0px;
+}
+.latest-b-text{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+}
+.latest-b-text p{
+    color:#979797;
+    margin: 0px;
+}
+.movies-heading h2{
+    font-weight: 400;
+    margin: 0px;
+    padding: 1px 20px;
+    background-color: rgba(0,0,0,0.01);
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 100%;
+}
+.movies-heading{
+    display: flex;
+    margin:0px 2%;
+}
+.movies-box{
+    width:300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+    margin: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    border-top: 3px solid #292929;
+}
+.movies-img{
+    width:100%;
+    height: 400px;
+    position: relative;
+}
+.movies-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.movies-box a{
+    text-align:center;
+    display: block;
+    font-weight: 600;
+    display: -webkit-box;
+    max-width: 80%;
+    -webkit-line-clamp: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #3a3a3a;
+    margin: 20px;
+}
+.movies-box:hover{
+    transform: translateY(-10px);
+    transition: all ease 0.2s;
+}
+#movies-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.quality{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1f1f1f;
+    color: #ffffff;
+    padding: 5px 20px;
+    font-weight: 500;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 5px 10px 30px rgba(0,0,0,0.4);
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btns a{
+    width: 130px;
+    height: 40px;
+    border:none;
+    outline: none;
+    color: #ffffff;
+    background-color: #3963f0;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+.btns a:hover{
+    background-color: #284fd1;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.1);
+ 
+}
+footer p{
+    color:#5e5e5e;
+    margin: 10px 0px;
+    font-size: 0.9rem;
+}
+nav .menu-btn{
+    display: none;
+}
+@media(max-width:1100px){
+    nav{
+        justify-content: space-between;
+        height: 70px;
+        padding: 0px 10px;
+    }
+    nav .menu{
+       display: none;
+        position: absolute;
+        top: 65px;
+        left: 0px;
+        background: #fff;
+        border-bottom:4px solid #242424;
+        width:100%;
+        padding:0px;
+        margin:0px;
+    }
+    .menu li{
+        width:100%;
+    }
+    nav .menu li a{
+        width: 100%;
+        height: 40px;
+        align-items: center;
+        margin: 0px;
+        padding:25px;
+        border:1px solid rgba(38,38,38,0.03);
+    }
+ 
+    nav .menu-icon{
+        cursor: pointer;
+        float: right;
+        padding:28px 20px;
+        position: relative;
+        user-select: none;
+        display: block;
+    }
+    nav .menu-icon .nav-icon{
+        background-color: #333333;
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background 0.2s ease-out;
+        width: 18px;
+    }
+    nav .menu-icon .nav-icon:before,
+    nav .menu-icon .nav-icon:after{
+        background: #333333;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all ease-out 0.2s;
+        width: 100%;
+    }
+    nav .menu-icon .nav-icon:before{
+        top:5px;
+    }
+    nav .menu-icon .nav-icon:after{
+        top:-5px;
+    }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon{
+        background: transparent;
+ 
+    }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon:before{
+        transform: rotate(-45deg);
+        top: 0;
+    }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon:after{
+        transform: rotate(45deg);
+        top: 0;
+    }
+    nav .menu-btn{
+        display: none;
+    }
+    nav .menu-btn:checked ~ .menu{
+        display: block;
+    }
+}
+@media(max-width:680px){
+    .showcase-box{
+        max-width: 300px;
+        height: 180px;
+        margin: 10px;
+    }
+    .latest-box{
+        width:190px;
+        margin: 20px 5px;
+    }
+    .movies-box{
+        flex-direction: row;
+        width:90%;
+        border: 1px solid rgba(0,0,0,0.2);
+    }
+    .movies-box a{
+        width:65%;
+    }
+    footer{
+        justify-content: space-between;
+        padding:0px 20px;
+        text-align: center;
+    }
+}
+@media(max-width:440px){
+    .movies-box a,.movies-box{
+        width: 100%;
+    }
+    .movies-box{
+        flex-direction: column;
+    }
+    .logo img{
+        height: 30px;
+    }
+    .search{
+        width: 90%;
+        height: 40px;
+    }
+}
+body {
+    background-color: #131325;
+  }
+  
+  .flex-row {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-flow: column;
+  }
+  
+  .center {
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .list {
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .list .card {
+    cursor: pointer;
+    min-width: 700px;
+    margin-bottom: 10px;
+    perspective: 600px;
+    transition: all 0.1s;
+    background-color: #212140;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    height: 90px;
+  }
+  .list .card .bottom {
+    height: 0px;
+    overflow: hidden;
+    width: 200px;
+    font-size: 12px;
+    color: #777;
+    font-weight: normal;
+  }
+  .list .card.open {
+    padding: 30px;
+    height: auto;
+  }
+  .list .card.open .bottom {
+    margin-top: 10px;
+    height: 100%;
+    overflow: visible;
+  }
+  .list .card.open .book {
+    transform: rotateY(50deg);
+    box-shadow: -10px 10px 10px 2px rgba(0, 0, 0, 0.2), -2px 0px 0px 0px #888;
+    transition: all 0.5s;
+    transition-delay: 0.05s;
+  }
+  .list .card.open .info {
+    transform: translate(0, -10px);
+  }
+  .list .card.open .members {
+    padding: 15px 20px;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+  .list .card button.simple {
+    cursor: pointer;
+    color: #CCC;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background-color: #1ea94b;
+    padding: 15px 20px;
+    font-family: "Montserrat";
+    font-weight: bold;
+    transition: all 0.1s;
+  }
+  .list .card button.simple:hover {
+    box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.3);
+    transform: translate(0, -2px);
+  }
+  .list .card .book {
+    transition: all 0.5s;
+    width: 120px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  .list .card .info {
+    transition: all 0.2s;
+    min-width: 200px;
+    padding: 0px 30px;
+    font-family: "Montserrat";
+    font-weight: bold;
+  }
+  .list .card .info .title {
+    font-size: 1em;
+    color: #FFF;
+    letter-spacing: 1px;
+  }
+  .list .card .info .author {
+    font-size: 12px;
+    font-weight: normal;
+    color: #888;
+  }
+  .list .card .group {
+    margin-left: auto;
+  }
+  .list .card .members {
+    transition: all 0.1s;
+    padding: 40px;
+    font-family: "Montserrat";
+    color: #CCC;
+    background-color: #1c1c36;
+  }
+  .list .card .members .current {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .list .card .members .max {
+    opacity: 0.5;
+    margin-left: 10px;
+  }
+</style>
+<body>
+     <!--navigation-------------->
+     <nav>
+        <!--logo--------------->
+        <a href="#" class="logo">
+            <img src="images/logo.png"/>
+        </a>
+        <!--menu--btn----------------->
+        <input type="checkbox" class="menu-btn" id="menu-btn"/>
+        <label class="menu-icon" for="menu-btn">
+            <span class="nav-icon"></span>
+        </label>
+        <!--menu-------------->
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">TV Shows</a></li>
+            <li><a href="#">Hollywood</a></li>
+            <li><a href="#">Horror</a></li>
+        </ul>
+        <!--search------------->
+        <div class="search">
+            <input type="text" placeholder="Find Your Favourtie Movies"/>
+            <!--search-icon----------->
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+    <section id="main">
+        <!--showcase----------------------->
+        <!--heading------------->
+        <h1 class="showcase-heading">Showcase</h1>
+        
+        <ul id="autoWidth" class="cs-hidden">
+        
+        <!--box-1--------------------------->
+        <li class="item-a">
+            <!--showcase-box------------------->
+           <div class="showcase-box">
+               <img src="images/s-1.jpg"/>
+           </div>
+               </li>
+            <!--box-2--------------------------->
+            <li class="item-b">
+                <!--showcase-box------------------->
+               <div class="showcase-box">
+                   <img src="images/s-2.jpg"/>
+               </div>
+                   </li>
+                <!--box-3--------------------------->
+            <li class="item-c">
+                <!--showcase-box------------------->
+               <div class="showcase-box">
+                   <img src="images/s-3.jpg"/>
+               </div>
+                   </li>
+                <!--box-4--------------------------->
+            <li class="item-d">
+                <!--showcase-box------------------->
+               <div class="showcase-box">
+                   <img src="images/s-4.jpg"/>
+               </div>
+                   </li>
+                   <!--box-5--------------------------->
+            <li class="item-e">
+                <!--showcase-box------------------->
+               <div class="showcase-box">
+                   <img src="images/s-5.png"/>
+               </div>
+                   </li>
+          </ul>
+        
+    </section>
+    <!--latest-movies---------------------->
+    <section id="latest">
+        <h2 class="latest-heading">Latest Movies</h2>
+        <!--slider------------------->
+        <ul id="autoWidth2" class="cs-hidden">
+            <!--slide-box-1------------------>
+            <li class="item-a">
+                <div class="latest-box">
+                    <!--img-------->
+                    <div class="latest-b-img">
+                        <img src="images/m-1.jpg">
+                    </div>
+                    <!--text---------->
+                    <div class="latest-b-text">
+                        <strong>Kin 2018</strong>
+                        <p>Action Movie</p>
+                    </div>
+                </div>
+            </li>
+    <!--slide-box-2------------------>
+    <li class="item-b">
+        <div class="latest-box">
+            <!--img-------->
+            <div class="latest-b-img">
+                <img src="images/m-2.jpg">
+            </div>
+            <!--text---------->
+            <div class="latest-b-text">
+                <strong>Kin 2018</strong>
+                <p>Action Movie</p>
+            </div>
+        </div>
+    </li>
+    <!--slide-box-3------------------>
+    <li class="item-c">
+        <div class="latest-box">
+            <!--img-------->
+            <div class="latest-b-img">
+                <img src="images/m-3.jpg">
+            </div>
+            <!--text---------->
+            <div class="latest-b-text">
+                <strong>Kin 2018</strong>
+                <p>Action Movie</p>
+            </div>
+        </div>
+    </li>
+    <!--slide-box-4------------------>
+    <li class="item-d">
+        <div class="latest-box">
+            <!--img-------->
+            <div class="latest-b-img">
+                <img src="images/m-4.jpg">
+            </div>
+            <!--text---------->
+            <div class="latest-b-text">
+                <strong>Kin 2018</strong>
+                <p>Action Movie</p>
+            </div>
+        </div>
+    </li>
+    <!--slide-box-5------------------>
+    <li class="item-e">
+        <div class="latest-box">
+            <!--img-------->
+            <div class="latest-b-img">
+                <img src="images/m-5.jpg">
+            </div>
+            <!--text---------->
+            <div class="latest-b-text">
+                <strong>Kin 2018</strong>
+                <p>Action Movie</p>
+            </div>
+        </div>
+    </li>
+    <!--slide-box-6------------------>
+    <li class="item-f">
+        <div class="latest-box">
+            <!--img-------->
+            <div class="latest-b-img">
+                <img src="images/m-6.jpg">
+            </div>
+            <!--text---------->
+            <div class="latest-b-text">
+                <strong>Kin 2018</strong>
+                <p>Action Movie</p>
+            </div>
+        </div>
+    </li>
+    <!--slide-box-7------------------>
+    <li class="item-g">
+        <div class="latest-box">
+            <!--img-------->
+            <div class="latest-b-img">
+                <img src="images/m-7.jpeg">
+            </div>
+            <!--text---------->
+            <div class="latest-b-text">
+                <strong>Kin 2018</strong>
+                <p>Action Movie</p>
+            </div>
+        </div>
+    </li>
+          </ul>
+    </section>
+    <!--movies---------------------------->
+    <div class="movies-heading">
+        <h2>Movies</h2>
+    </div>
+    <section id="movies-list">
+        <!--box-1------------------------>
+        <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+                <div class="quality">HDRip</div>
+                <img src="images/l-1.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+                Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
+        </div>
+         <!--box-2------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+                <div class="quality">HDRip</div>
+                <img src="images/l-2.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+                Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
+        </div>
+         <!--box-3------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+                <div class="quality">HDRip</div>
+                <img src="images/l-3.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+                Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
+        </div>
+         <!--box-4------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+                <div class="quality">HDRip</div>
+                <img src="images/l-4.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+                Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
+        </div>
+         <!--box-5------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+                <div class="quality">HDRip</div>
+                <img src="images/l-5.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+                Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
+        </div>
+         <!--box-6------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+                <div class="quality">HDRip</div>
+                <img src="images/l-6.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+                Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
+        </div>
+         <!--box-7------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+                <div class="quality">HDRip</div>
+                <img src="images/l-7.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+                Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
+        </div>
+         <!--box-8------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+                <div class="quality">HDRip</div>
+                <img src="images/l-8.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+                Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
+        </div>
+    </section>
+<!--btns--------------->
+    <div class="btns">
+        <a href="#">Previous</a>
+        <a href="#">Next</a>
+    </div>
+    <!--footer------------------>
+    <footer>
+        <p>Going To Internet, Ltd Consumer Website</p>
+        <p>Copyright 2020 - GoingToInternet</p>
+    </footer>
+    <script>
+        $(document).ready(function() {
+    $('#autoWidth,#autoWidth2').lightSlider({
+        autoWidth:true,
+        loop:true,
+        onSliderLoad: function() {
+            $('#autoWidth,#autoWidth2').removeClass('cS-hidden');
+        } 
+    });  
+  });
+  
+    </script>
+    <section>
+        <div class='container'>
+            <div class='center list flex-column'>
+              <div class='card flex-row open'>
+                <img src='http://i.harperapps.com/covers/9780008108298/y450-293.jpg' class='book'>
+                <div class='flex-column info'>
+                  <div class='title'>The Fellowship of the Ring</div>
+                  <div class='author'>J.R.R. Tolkien</div>
+                  <div class='hidden bottom summary'>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod ratione impedit temporibus maiores autem aperiam assumenda exercitationem, quisquam nobis esse.
+                  </div>
+                </div>
+                <div class='flex-column group'>
+                  <div class='members'>
+                    <span class='current'>14</span> /
+                    <span class='max'>30</span>
+                  </div>
+                  <div class='hidden bottom'>
+                    <button class='simple'>book now</button>
+                  </div>
+                </div>
+              </div>
+              <div class='card flex-row'>
+                <img src='https://i.pinimg.com/originals/52/ec/12/52ec12f7dd324864949267c92cce2e43.jpg' class='book'>
+                <div class='flex-column info'>
+                  <div class='title'>1984</div>
+                  <div class='author'>George Orwell</div>
+                  <div class='hidden bottom summary'>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod ratione impedit temporibus maiores autem aperiam assumenda exercitationem, quisquam nobis esse.
+                  </div>
+                </div>
+                <div class='flex-column group'>
+                  <div class='members'>
+                    <span class='current'>14</span> /
+                    <span class='max'>30</span>
+                  </div>
+                  <div class='hidden bottom'>
+                    <button class='simple'>Join</button>
+                  </div>
+                </div>
+              </div>
+              <div class='card flex-row'>
+                <img src='https://images-na.ssl-images-amazon.com/images/I/51N5qVjuKAL._SX309_BO1,204,203,200_.jpg' class='book'>
+                <div class='flex-column info'>
+                  <div class='title'>To Kill a Mockingbird</div>
+                  <div class='author'>Harper Lee</div>
+                  <div class='hidden bottom summary'>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod ratione impedit temporibus maiores autem aperiam assumenda exercitationem, quisquam nobis esse.
+                  </div>
+                </div>
+                <div class='flex-column group'>
+                  <div class='members'>
+                    <span class='current'>14</span> /
+                    <span class='max'>30</span>
+                  </div>
+                  <div class='hidden bottom'>
+                    <button class='simple'>Join</button>
+                  </div>
+                </div>
+              </div>
+              <div class='card flex-row'>
+                <img src='https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/TheGreatGatsby_1925jacket.jpeg/220px-TheGreatGatsby_1925jacket.jpeg' class='book'>
+                <div class='flex-column info'>
+                  <div class='title'>Great Gatsby</div>
+                  <div class='author'>F Scott Fitzgerald</div>
+                  <div class='hidden bottom summary'>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod ratione impedit temporibus maiores autem aperiam assumenda exercitationem, quisquam nobis esse.
+                  </div>
+                </div>
+                <div class='flex-column group'>
+                  <div class='members'>
+                    <span class='current'>14</span> /
+                    <span class='max'>30</span>
+                  </div>
+                  <div class='hidden bottom'>
+                    <button class='simple'>Join</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+          
+          let old = $('.card').get(0);
+  $('.card').click(function(){
+    if(old!=null && $(old).hasClass('open'))
+      $(old).toggleClass('open');
+     $(this).toggleClass('open');
+     old = this;
+  
+  })
+        </script>
+</body>
+</html>

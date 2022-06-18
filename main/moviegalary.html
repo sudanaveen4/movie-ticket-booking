@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="moviegal.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700.css">
+    <title>Document</title>
+</head>
+<style>
+    .searchbar{
+        border:none;
+        height: 17px;
+        background-color: rgb(150, 154, 209);
+        color: rgb(8, 8, 8);
+
+    }
+
+    .searchbar:hover,.searchbar:active{
+        border:3px;
+        border-style: solid;
+        border-color: rgb(238, 215, 11);
+        height: 10px;
+        background-color: rgba(22,34,57,0.95);
+        color: rgb(238, 215, 11);
+        }
+        .dropdown {
+  
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:transparent;
+  min-width: 160px;
+  z-index: 1;padding-top: -100px;
+  background-color: rgb(150, 154, 209);
+}
+
+.dropdown-content a {
+  color: black;
+  display: block;
+
+}
+
+.dropdown-content a:hover {background-color: rgb(11, 230, 238);
+color: aliceblue;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.ga1{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(60, 77, 99);
+}
+</style>
+<body>
+    <header class="main-header clearfix" role="header" id='BBB'>
+        <div class="logo">
+          <a href="#"><em>Virtusa</em> movies</a>
+        </div>
+        <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+        <nav id="menu" class="main-nav" role="navigation">
+          <ul class="main-menu">
+            <li class="dropdown"><a href="#" class="btn">MOVIES</a>
+                <div class="dropdown-content">
+                  <a class="row" style="text-align: center; color: black;"  href="https://www.facebook.com/sudanaveen4/">latest </a>
+                  <a class="row" style="text-align: center; color: black;" href="https://www.amazon.in/?tag=operadesktop-21">all</a>
+                  <a class="row" style="text-align: center; color: black;" href="https://www.youtube.com">upcoming</a>
+                </div></li>
+            <li><a href="#">MY BOOKINGS</a></li>
+            <li><input class="searchbar" type="text" placeholder="Enter movie name" name="mname" ></li>
+            <li><a href="#">user profile</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section class="ga1">
+        
+       </section>
+</body>
+</html>
